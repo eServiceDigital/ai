@@ -3,50 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Chatbot Web Page</title>
+    <title>Your Full-Screen Chatbot</title>
     <style>
-        /* Basic reset for margin and padding */
         body, html {
             margin: 0;
             padding: 0;
-        }
-
-        /* Ensure full height for body and html */
-        html, body {
             height: 100%;
             overflow: hidden;
         }
-
-        /* Full-screen style for the chatbot container */
         #voiceflow-container {
-            position: fixed; /* Use fixed positioning */
+            position: fixed;
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
-            border: none; /* Ensure no border */
-            background-color: #f4f4f4; /* Optional: background color */
+            width: 100%;
+            height: 100%;
         }
     </style>
 </head>
 <body>
-    <div id="voiceflow-container">
-        <script type="text/javascript">
-            (function(d, t) {
-                var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-                v.onload = function() {
-                    window.voiceflow.chat.load({
-                        verify: { projectID: '658b3ac9cc4836297f33fb4c' },
-                        url: 'https://general-runtime.voiceflow.com',
-                        versionID: 'production',
-                        el: '#voiceflow-container'
-                    });
-                };
-                v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; 
-                v.type = "text/javascript"; 
-                s.parentNode.insertBefore(v, s);
-            })(document, 'script');
-        </script>
-    </div>
+    <div id="voiceflow-container"></div>
+    <script type="text/javascript">
+        (function(d, t) {
+            var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+            v.onload = function() {
+                window.voiceflow.chat.load({
+                    verify: { projectID: '658b3ac9cc4836297f33fb4c' }, // Replace with your actual project ID
+                    url: 'https://general-runtime.voiceflow.com',
+                    versionID: 'production', // Replace with your actual version ID if needed
+                    el: '#voiceflow-container'
+                });
+            };
+            v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; 
+            v.type = "text/javascript"; 
+            s.parentNode.insertBefore(v, s);
+        })(document, 'script');
+    </script>
 </body>
 </html>
+
