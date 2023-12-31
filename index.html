@@ -1,38 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Full-Screen Chatbot</title>
-    <style>
-        /* Reset default styles and set full viewport height */
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-        }
-        /* Ensure the chat container fills the whole screen */
-        #vf-chat-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-        }
-    </style>
-</head>
-<body>
-    <div id="vf-chat-container"></div>
-    <script>
-        (function(d, m){
-            var vf = d.createElement(m), s = d.getElementsByTagName(m)[0];
-            vf.src = 'https://chat.voiceflow.com/chat.js'; 
-            vf.async = true;
-            vf.id = 'vf-chat';
-            vf.setAttribute('data-project-id', '658c9e814bc3a67005eae558');
-            s.parentNode.insertBefore(vf, s);
-        })(document, 'script');
-    </script>
-</body>
-</html>
+<script type="text/javascript">
+  (function(d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.onload = function() {
+        window.voiceflow.chat.load({
+          verify: { projectID: 'xxxxxxx' }, // replace 'xxxxxxx' with your project ID
+          url: 'https://general-runtime.voiceflow.com',
+          versionID: 'production',
+          assistant: {
+              stylesheet: "https://www.yourwebsite.com/yourcssfile.css" // replace with the URL of your CSS file
+         }
+        });
+      }
+      v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+  })(document, 'script');
+</script>
+
+.vfrc-widget--chat {
+    width: 100%; // This will make the chat widget full screen
+}
+.vfrc-system-response--list .vfrc-message--chat {
+  max-width: 100%;
+  width: 100%;
+}
