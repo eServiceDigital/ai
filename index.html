@@ -5,50 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Chatbot Web Page</title>
     <style>
-        /* Reset default margin and padding */
+        /* Basic reset for margin and padding */
         body, html {
-            height: 100%;
             margin: 0;
             padding: 0;
+        }
+
+        /* Ensure full height for body and html */
+        html, body {
+            height: 100%;
             overflow: hidden;
         }
 
-        /* Make the chatbot container full-screen */
+        /* Full-screen style for the chatbot container */
         #voiceflow-container {
+            position: fixed; /* Use fixed positioning */
+            top: 0;
+            left: 0;
             width: 100vw;
             height: 100vh;
-            border: none; /* Remove any border, if present */
-        }
-
-        /* Additional styles for responsiveness on larger screens */
-        @media (min-width: 768px) {
-            #voiceflow-container {
-                width: 100%;
-                height: 100%;
-            }
-        }
-
-        /* Additional styles for the chatbot iframe */
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* Your additional CSS code for the chatbot sidebar */
-        #continually-sidebar.continually-open, #continually-sidebar[data-cx-open=true] {
-            width: 100%!important;
-            top: 0!important;
-            right: 0!important;
-            bottom: 0!important;
-            left: 0!important;
+            border: none; /* Ensure no border */
+            background-color: #f4f4f4; /* Optional: background color */
         }
     </style>
 </head>
 <body>
-    <!-- Add a container for the Voiceflow chatbot -->
     <div id="voiceflow-container">
-        <!-- Include Voiceflow WebChat JavaScript -->
         <script type="text/javascript">
             (function(d, t) {
                 var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
@@ -59,8 +41,10 @@
                         versionID: 'production',
                         el: '#voiceflow-container'
                     });
-                }
-                v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+                };
+                v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; 
+                v.type = "text/javascript"; 
+                s.parentNode.insertBefore(v, s);
             })(document, 'script');
         </script>
     </div>
